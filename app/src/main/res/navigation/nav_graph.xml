@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.example.todoapp.ui.fragment.MainPageFragment"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/toDoRecordTransition"
+            app:destination="@id/toDoRecordFragment" />
+        <action
+            android:id="@+id/toDoDetailTransition"
+            app:destination="@id/toDoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDoRecordFragment"
+        android:name="com.example.todoapp.ui.fragment.ToDoRecordFragment"
+        android:label="fragment_to_do_record"
+        tools:layout="@layout/fragment_to_do_record" >
+        <action
+            android:id="@+id/recordToMainPageTransition"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDoDetailFragment"
+        android:name="com.example.todoapp.ui.fragment.ToDoDetailFragment"
+        android:label="fragment_to_do_detail"
+        tools:layout="@layout/fragment_to_do_detail" >
+        <argument
+            android:name="toDo"
+            app:argType="com.example.todoapp.data.entity.ToDos" />
+        <action
+            android:id="@+id/detailToMainPageTransition"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+</navigation>
